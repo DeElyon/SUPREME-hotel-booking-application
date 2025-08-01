@@ -28,8 +28,11 @@ export default function RootLayout({
       <body className={` ${inter.className} antialiased`}>
         <ErrorBoundary>
           <AuthProvider>
-            {children}
-            <Toaster />
+            <NotificationProvider>
+              {children}
+              <ToastContainer />
+              <Toaster />
+            </NotificationProvider>
           </AuthProvider>
         </ErrorBoundary>
       </body>
