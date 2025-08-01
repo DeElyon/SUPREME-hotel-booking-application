@@ -532,7 +532,7 @@ export default function MenuManagementPage() {
               <div className="text-gray-500 mb-4">No items found</div>
               <Button
                 variant="outline"
-                onClick={() => router.push("/vendorDashboard/menu/add")}
+                onClick={() => router.push("/vendor-dashboard/restaurant/menu/add")}
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Add New Item
