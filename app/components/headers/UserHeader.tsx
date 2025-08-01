@@ -42,7 +42,7 @@ function Header() {
     e.preventDefault();
     try {
       await AuthService.logout();
-      window.location.href = "/user-login"
+      window.location.href = "/(auth)/user-login"
     } catch (error) {
       console.error("Failed to logout:", error);
     }
