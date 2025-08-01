@@ -6,28 +6,19 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const vendorId = searchParams.get('vendorId');
-    const status = searchParams.get('status');
+    const status = searchParams.get('status') as ReservationStatus;
     const checkIn = searchParams.get('checkIn');
     const checkOut = searchParams.get('checkOut');
 
-    let filteredReservations = reservations;
+    const filters = {
+      vendorId: vendorId || undefined,
+      status: status || undefined,
+      checkIn: checkIn || undefined,
+      checkOut: checkOut || undefined,
+    };
 
-    // Apply filters
-    if (status) {
-      filteredReservations = filteredReservations.filter(r => r.status === status);
-    }
-    if (checkIn) {
-      filteredReservations = filteredReservations.filter(r => 
-        new Date(r.checkIn) >= new Date(checkIn)
-      );
-    }
-    if (checkOut) {
-      filteredReservations = filteredReservations.filter(r => 
-        new Date(r.checkOut) <= new Date(checkOut)
-      );
-    }
-
-    return NextResponse.json(filteredReservations);
+    const reservations = await DatabaseService.getReservations(filters);
+    return NextResponse.json(reservations);
   } catch (error) {
     console.error('Error fetching reservations:', error);
     return NextResponse.json(
