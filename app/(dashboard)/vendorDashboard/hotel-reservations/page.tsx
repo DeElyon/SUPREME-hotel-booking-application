@@ -62,14 +62,28 @@ const mockUser: User = {
 };
 
 const ReservationsManagement = () => {
-  const [reservations, setReservations] = useState<Reservation[]>([]);
+  const [selectedReservation, setSelectedReservation] = useState<Reservation | null>(null);
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [dateFilter, setDateFilter] = useState<string>('');
   const [user] = useState<User>(mockUser);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [apiError, setApiError] = useState<string | null>(null);
+
+  const vendorId = 'current-vendor-id'; // Replace with actual vendor ID
+  const { items: reservations, loading, error } = useReservations(vendorId);
 
   const canManage = ['Super Admin', 'Admin', 'Hotel Owner'].includes(user.role);
+
+  const handleStatusChange = useCallback(async (id: string, status: Reservation['status']) => {
+    try {
+      await API.updateReservationStatus(id, status);
+      // WebSocket will handle the update in the UI
+    } catch (error) {
+      console.error('Failed to update reservation status:', error);
+    }
+  }, []);
+
+  const handleViewDetails = useCallback((reservation: Reservation) => {
+    setSelectedReservation(reservation);
+  }, []);
 
   const fetchReservations = async () => {
     try {
