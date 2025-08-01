@@ -28,7 +28,6 @@ const BookingForm = ({ id }: { id: string }) => {
       specialRequest: request,
     });
     router.push(`/restaurants/${id}/reservations?${params.toString()}`);
-    e.preventDefault();
     setIsLoading(true);
     try {
       if (!date || !time) {
