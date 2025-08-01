@@ -229,7 +229,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     },
     {
       title: isHotel ? "Hotel Bookings" : isRestaurant ? "Restaurant Bookings" : "Restaurant Bookings",
-      url: isHotel ? "/vendorDashboard/hotel-reservations" : isRestaurant ? "/vendorDashboard/restaurantBookings"  : "/vendorDashboard/restaurantBookings",
+      url: isHotel ? "/vendorDashboard/hotel-reservations" : "/vendorDashboard/bookingManagement",
       icon: IoDocumentTextOutline,
       items: [
         {
