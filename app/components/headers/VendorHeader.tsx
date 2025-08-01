@@ -130,7 +130,7 @@ function Header() {
           </div>
         </div>
         <div className="flex justify-center items-center gap-4">
-          <BellDot />
+          <NotificationBell />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="flex items-center gap-2 p-2">
