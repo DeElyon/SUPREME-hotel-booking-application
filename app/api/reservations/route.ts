@@ -57,29 +57,24 @@ export async function PATCH(request: NextRequest) {
     const body = await request.json();
     const { id, ...updates } = body;
 
-    const reservationIndex = reservations.findIndex(r => r.id === id);
-    if (reservationIndex === -1) {
+    const updatedReservation = await DatabaseService.updateReservationWithNotification(id, updates);
+
+    if (!updatedReservation) {
       return NextResponse.json(
         { error: 'Reservation not found' },
         { status: 404 }
       );
     }
 
-    reservations[reservationIndex] = {
-      ...reservations[reservationIndex],
-      ...updates,
-      updatedAt: new Date().toISOString(),
-    };
-
     // Simulate real-time broadcast
     if (global.io) {
       global.io.emit('reservation:update', {
         type: 'update',
-        data: reservations[reservationIndex],
+        data: updatedReservation,
       });
     }
 
-    return NextResponse.json(reservations[reservationIndex]);
+    return NextResponse.json(updatedReservation);
   } catch (error) {
     console.error('Error updating reservation:', error);
     return NextResponse.json(
