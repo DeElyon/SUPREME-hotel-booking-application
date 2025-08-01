@@ -7,9 +7,9 @@ import { Overview } from '@/app/components/Overview';
 import { RecentOrders } from '@/app/components/RecentOrders';
 import { TopSellingItems } from '@/app/components/TopSellingItems';
 import { MenuCard } from '@/app/components/MenuCard';
-import { Reservation } from '../../../types/reservation';
+import { Reservation } from '../../types/reservation';
 import { API } from '../../services/api';
-import CurrentDateTime from '../../../components/dashboard/CurrentDateTime';
+import CurrentDateTime from '../../components/dashboard/CurrentDateTime';
 
 const VendorDashboard: React.FC = () => {
   const [selectedReservation, setSelectedReservation] = useState<Reservation | null>(null);
