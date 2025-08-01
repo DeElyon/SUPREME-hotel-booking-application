@@ -31,15 +31,8 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    
-    const newReservation: Reservation = {
-      id: Math.random().toString(36).substr(2, 9),
-      ...body,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    };
 
-    reservations.push(newReservation);
+    const newReservation = await DatabaseService.createReservationWithNotification(body);
 
     // Simulate real-time broadcast (in real app, use WebSocket)
     if (global.io) {
