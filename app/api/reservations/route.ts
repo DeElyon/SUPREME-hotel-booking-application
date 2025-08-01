@@ -96,22 +96,28 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    const reservationIndex = reservations.findIndex(r => r.id === id);
-    if (reservationIndex === -1) {
+    const reservation = await DatabaseService.getReservationById(id);
+    if (!reservation) {
       return NextResponse.json(
         { error: 'Reservation not found' },
         { status: 404 }
       );
     }
 
-    const deletedReservation = reservations[reservationIndex];
-    reservations.splice(reservationIndex, 1);
+    const deleted = await DatabaseService.deleteReservationWithNotification(id);
+
+    if (!deleted) {
+      return NextResponse.json(
+        { error: 'Failed to delete reservation' },
+        { status: 500 }
+      );
+    }
 
     // Simulate real-time broadcast
     if (global.io) {
       global.io.emit('reservation:update', {
         type: 'delete',
-        data: deletedReservation,
+        data: reservation,
       });
     }
 
