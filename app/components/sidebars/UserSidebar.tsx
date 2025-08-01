@@ -149,7 +149,7 @@ const data = {
     },
     {
       title: "Payments & transactions",
-      url: "/userDashboard/payment",
+      url: "/userDashboard/payment-history",
       icon: PiHandCoinsLight,
       items: [
         {
