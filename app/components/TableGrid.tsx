@@ -383,11 +383,10 @@ export const TableGridTwo = ({ title, restaurants }: { title: string; restaurant
                       key={index}
                       src={typeof image === 'string' ? image : image.url}
                       alt={restaurant.name}
-                      layout="fill"
-                      objectFit="cover"
-                      className={`absolute transition-all duration-300 ease-out ${
-                        multipleImages 
-                          ? `will-change-transform ${hovering ? 'brightness-105' : ''}` 
+                      fill
+                      className={`absolute transition-all duration-300 ease-out object-cover ${
+                        multipleImages
+                          ? `will-change-transform ${hovering ? 'brightness-105' : ''}`
                           : 'hover:scale-105'
                       }`}
                       style={multipleImages ? {
