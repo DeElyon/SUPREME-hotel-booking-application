@@ -409,7 +409,7 @@ export default function MenuManagementPage() {
           <Button
             className="bg-teal-600 hover:bg-teal-700 text-white"
             size="sm"
-            onClick={() => router.push("/vendorDashboard/menu/add")}
+            onClick={() => router.push("/vendor-dashboard/restaurant/menu/add")}
           >
             <Plus className="w-4 h-4 mr-2" />
             Add Menu
