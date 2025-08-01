@@ -225,12 +225,13 @@ export default function MenuManagementPage() {
           <Image
             src={item.image}
             alt={item.name}
+            width={400}
+            height={192}
             className="w-full h-48 object-cover"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.src = `https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=200&fit=crop&crop=center`;
             }}
-            fill
           />
           <div className="absolute top-2 right-2">
             <DropdownMenu>
@@ -301,13 +302,16 @@ export default function MenuManagementPage() {
     return (
       <TableRow>
         <TableCell>
-          <div className="flex items-center w-12 h-12 relative space-x-3">
-            <Image
-              src={item.image}
-              alt={item.name}
-              className="w-12 h-12 rounded object-cover"
-              fill
-            />
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 relative flex-shrink-0">
+              <Image
+                src={item.image}
+                alt={item.name}
+                width={48}
+                height={48}
+                className="w-12 h-12 rounded object-cover"
+              />
+            </div>
             <div>
               <div className="font-medium">{item.name}</div>
               <div className="text-sm text-gray-500">{item.description}</div>
@@ -495,16 +499,16 @@ export default function MenuManagementPage() {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Image</TableHead>
-                      <TableHead>Menu name</TableHead>
+                      <TableHead>Menu Item</TableHead>
                       <TableHead>Price</TableHead>
                       <TableHead>Category</TableHead>
                       <TableHead>Menu Type</TableHead>
                       <TableHead>Meal Times</TableHead>
-                      <TableHead>Items</TableHead>
+                      <TableHead>Orders</TableHead>
                       <TableHead>Tags</TableHead>
                       <TableHead>Status</TableHead>
-                      <TableHead></TableHead>
+                      <TableHead>Active</TableHead>
+                      <TableHead>Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
