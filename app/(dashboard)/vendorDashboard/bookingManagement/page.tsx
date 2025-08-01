@@ -1,6 +1,10 @@
 "use client";
 import React, { useState, useEffect, ReactElement, useCallback } from "react";
-import { io, Socket } from "socket.io-client";
+import { useReservations } from '../../../../hooks/useReservations';
+import ReservationsTable from '../../../components/dashboard/ReservationsTable';
+import ReservationDetailsModal from '../../../components/dashboard/ReservationDetailsModal';
+import { API } from '../../../services/api';
+import WebSocketService from '../../../services/WebSocketService';
 import {
   Search,
   Trash2,
