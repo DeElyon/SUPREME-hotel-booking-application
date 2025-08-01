@@ -139,7 +139,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const handleLogout = async () => {
     try {
       await AuthService.logout();
-      router.push("/vendor-login");
+      router.push("/(auth)/vendor-login");
     } catch (error) {
       console.error("Failed to logout:", error);
     }
@@ -381,4 +381,3 @@ const Home = () => (
     </defs>
   </svg>
 );
-
