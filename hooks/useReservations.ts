@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Reservation, ReservationStatus, ReservationUpdate, ReservationsState } from '@/types/reservation';
+import { Reservation, ReservationStatus, ReservationUpdate, ReservationsState } from '../types/reservation';
 import WebSocketService from '../app/services/WebSocketService';
 import { fetcher } from '@/utils/api';
 import useSWR from 'swr';
