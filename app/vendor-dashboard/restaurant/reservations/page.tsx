@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect, useCallback } from "react";
 import {
   Search,
   Bell,
@@ -13,6 +12,11 @@ import {
   Check,
   X,
 } from "lucide-react";
+import { useReservations } from '../../../../hooks/useReservations';
+import ReservationsTable from '../../../components/dashboard/ReservationsTable';
+import ReservationDetailsModal from '../../../components/dashboard/ReservationDetailsModal';
+import { API } from '../../../services/api';
+import { Reservation } from '../../../types/reservation';
 
 // API endpoints to be implemented by backend:
 // GET /api/vendor/reservations
