@@ -1,7 +1,7 @@
 import React, { useState, useCallback, Suspense } from 'react';
 import { useReservations } from '../../../hooks/useReservations';
-import ReservationsTable from '../../../components/dashboard/ReservationsTable';
-import ReservationDetailsModal from '../../../components/dashboard/ReservationDetailsModal';
+import ReservationsTable from '../../components/dashboard/ReservationsTable';
+import ReservationDetailsModal from '../../components/dashboard/ReservationDetailsModal';
 import { DashboardStats } from '@/app/components/DashboardStats';
 import { Overview } from '@/app/components/Overview';
 import { RecentOrders } from '@/app/components/RecentOrders';
