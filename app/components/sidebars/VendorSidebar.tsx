@@ -210,7 +210,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     },
     {
       title: isHotel ? "Hotel Listings" : isRestaurant ? "Restaurant Listings" : "My Listings",
-      url: isHotel ? "/vendorDashboard/hostelListings" : isRestaurant ? "/vendorDashboard/restaurantListings" : "/vendorDashboard/listings",
+      url: "/vendorDashboard/listings",
       icon: StickyNote,
       items: [
         {
