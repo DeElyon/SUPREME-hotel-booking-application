@@ -81,9 +81,8 @@ console.log(images, "images");
           key={i}
           src={src}
           alt={alt}
-          layout="fill"
-          objectFit="cover"
-          className="absolute transition-transform duration-300"
+          fill
+          className="absolute transition-transform duration-300 object-cover"
           style={{ transform: `translateX(${(i - current) * 100}%)` }}
         />
       ))}
