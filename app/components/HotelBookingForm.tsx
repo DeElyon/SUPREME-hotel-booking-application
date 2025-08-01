@@ -256,7 +256,7 @@ const HotelBookingForm = ({ id, restaurant }: { id: string; restaurant?: Restaur
         <Button
           type="submit"
           disabled={!date || !date2 || isLoading}
-          className="w-full rounded-xl bg-[#0A6C6D] hover:bg-[0A6C6D]/50"
+          className="w-full rounded-xl bg-[#0A6C6D] hover:bg-[#0A6C6D]/50"
         >
           {isLoading ? (
             <>
