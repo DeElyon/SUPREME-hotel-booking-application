@@ -1,7 +1,7 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { 
-  Calendar, 
+import React, { useState, useEffect, useCallback } from 'react';
+import {
+  Calendar,
   Filter,
   Bell,
   Hotel,
@@ -9,8 +9,11 @@ import {
   User,
   X,
 } from 'lucide-react';
-import API from '@/app/lib/api/axios';
-import { AuthService } from '@/app/lib/api/services/auth.service';
+import { useReservations } from '../../../../hooks/useReservations';
+import ReservationsTable from '../../../components/dashboard/ReservationsTable';
+import ReservationDetailsModal from '../../../components/dashboard/ReservationDetailsModal';
+import { API } from '../../../services/api';
+import { Reservation } from '../../../types/reservation';
 
 interface Reservation {
   id: string;
