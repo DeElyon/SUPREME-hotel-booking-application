@@ -4,6 +4,7 @@ import {
   SidebarTrigger,
 } from "@/app/components/ui/sidebar"
 import { BellDot, ChevronDown, LogOut } from "lucide-react"
+import NotificationBell from "../NotificationBell"
 import { getTimeBasedGreeting } from "./timeGreeting"
 import { useRouter } from 'next/navigation'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
