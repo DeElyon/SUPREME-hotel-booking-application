@@ -8,7 +8,7 @@ import { RecentOrders } from '@/app/components/RecentOrders';
 import { TopSellingItems } from '@/app/components/TopSellingItems';
 import { MenuCard } from '@/app/components/MenuCard';
 import { Reservation } from '../../../types/reservation';
-import { API } from '../../../services/api';
+import { API } from '../../services/api';
 import CurrentDateTime from '../../../components/dashboard/CurrentDateTime';
 
 const VendorDashboard: React.FC = () => {
