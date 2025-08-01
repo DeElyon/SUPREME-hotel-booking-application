@@ -1,36 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Reservation, ReservationStatus } from '../../types/reservation';
-
-// In-memory store for demo (replace with actual database)
-let reservations: Reservation[] = [
-  {
-    id: '1',
-    guestName: 'John Doe',
-    checkIn: new Date().toISOString(),
-    checkOut: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(),
-    roomNumber: '101',
-    status: 'confirmed',
-    totalAmount: 150,
-    customerEmail: 'john.doe@example.com',
-    customerPhone: '+1234567890',
-    specialRequests: 'Late check-in requested',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: '2',
-    guestName: 'Jane Smith',
-    checkIn: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
-    checkOut: new Date(Date.now() + 4 * 24 * 60 * 60 * 1000).toISOString(),
-    roomNumber: '205',
-    status: 'pending',
-    totalAmount: 200,
-    customerEmail: 'jane.smith@example.com',
-    customerPhone: '+1234567891',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-];
+import DatabaseService from '../../services/database';
 
 export async function GET(request: NextRequest) {
   try {
