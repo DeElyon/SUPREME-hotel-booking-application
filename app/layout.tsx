@@ -4,6 +4,8 @@ import { Toaster } from "sonner";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { AuthProvider } from "@/app/contexts/AuthContext";
+import { NotificationProvider } from "@/app/contexts/NotificationContext";
+import ToastContainer from "@/app/components/ToastContainer";
 
 // import { DM_Sans } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
