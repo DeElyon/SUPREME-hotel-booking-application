@@ -247,7 +247,7 @@ export default function MenuManagementPage() {
               <DropdownMenuContent align="end">
                 <DropdownMenuItem
                   onClick={() =>
-                    router.push(`/vendorDashboard/menu/${item.id}`)
+                    router.push(`/vendor-dashboard/restaurant/menu/${item.id}`)
                   }
                 >
                   <Eye className="w-4 h-4 mr-2" />
@@ -255,7 +255,7 @@ export default function MenuManagementPage() {
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={() =>
-                    router.push(`/vendorDashboard/menu/${item.id}/edit`)
+                    router.push(`/vendor-dashboard/restaurant/menu/${item.id}/edit`)
                   }
                 >
                   <Edit className="w-4 h-4 mr-2" />
