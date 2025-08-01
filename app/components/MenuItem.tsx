@@ -52,10 +52,9 @@ const MenuItem = ({ data }: { data: dataType }) => {
       <div className="relative w-full h-56 rounded-xl overflow-hidden">
         <Image
           src={`${itemImage}` || "/hero-bg.jpg"}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-xl"
-          alt={dishName || "Menu Item"} 
+          fill
+          className="rounded-xl object-cover"
+          alt={dishName || "Menu Item"}
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent"></div>
       </div>
